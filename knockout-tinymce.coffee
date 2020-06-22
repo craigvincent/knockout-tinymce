@@ -49,6 +49,10 @@
         cache = value
         if tinymce.getContent() isnt value
           tinymce.setContent value
+      else
+        # We need to remember the value that was updated during TinyMCE initialization,
+        # otherwise TinyMCE will show up with the old value
+        $(element).val value
       return
 
   writeValueToProperty = (property, allBindings, key, value, checkIfDifferent) -> 
